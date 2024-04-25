@@ -1,13 +1,24 @@
 services:
   jenkins:
+    container_name: Jenkins
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - '8080:8080'
     volumes:
       - jenkins_home:/var/jenkins_home
   ssh-agent:
     image: jenkins/ssh-agent
+  tomcat:
+    container_name: Tomcat
+    image: unidata/tomcat-docker:latest
+    ports:
+      - '8081:8080'
+    volumes:
+      - tomcat_logs:/usr/local/tomcat/logs/
+    env_file:
+      - 'compose.env'
 volumes:
   jenkins_home:
+  tomcat_logs:

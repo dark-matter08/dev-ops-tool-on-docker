@@ -12,7 +12,7 @@ services:
     image: jenkins/ssh-agent
   tomcat:
     container_name: Tomcat
-    image: unidata/tomcat-docker:latest
+    image: unidata/tomcat-docker:9.0-jdk11
     ports:
       - '8081:8080'
     volumes:

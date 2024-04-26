@@ -57,7 +57,7 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 RUN chmod +x /start-tomcat.sh
 
-# EXPO
+EXPOSE 4287
 # Start container
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/start-tomcat.sh"]

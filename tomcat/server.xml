@@ -139,6 +139,7 @@
     <Engine name="Catalina" defaultHost="localhost" jvmRoute="jvm1">
     -->
     <Engine name="Catalina" defaultHost="localhost">
+     
 
       <!--For clustering, please take a look at documentation at:
           /docs/cluster-howto.html  (simple how to)
@@ -146,6 +147,7 @@
       <!--
       <Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"/>
       -->
+
 
       <!-- Use the LockOutRealm to prevent attempts to guess user passwords
            via a brute-force attack -->
@@ -162,6 +164,7 @@
 
       <Host name="localhost"  appBase="webapps"
             unpackWARs="true" autoDeploy="true">
+            <Realm className="org.apache.catalina.realm.MemoryRealm" />
 
         <!-- SingleSignOn valve, share authentication between web applications
              Documentation at: /docs/config/valve.html -->

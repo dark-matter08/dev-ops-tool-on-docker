@@ -33,7 +33,12 @@ RUN apt-get update && \
     echo "session optional pam_umask.so" >> /etc/pam.d/common-session && \
     sed -i 's/UMASK.*022/UMASK           007/g' /etc/login.defs 
 
-RUN cp -r ${CATALINA_HOME}/webapps.dist/* ${CATALINA_HOME}/webapps
+# RUN cp -r ${CATALINA_HOME}/webapps.dist/* ${CATALINA_HOME}/webapps
+
+# RUN rm -rf ${CATALINA_HOME}/webapps.dist
+
+RUN mv ${CATALINA_HOME}/webapps ${CATALINA_HOME}/webapps2
+RUN mv ${CATALINA_HOME}/webapps.dist ${CATALINA_HOME}/webapps
 
 # Security enhanced web.xml
 COPY web.xml ${CATALINA_HOME}/conf/
@@ -49,15 +54,15 @@ COPY context.xml ${CATALINA_HOME}/webapps/manager/META-INF/
 
 # Tomcat start script
 COPY start-tomcat.sh ${CATALINA_HOME}/bin
-COPY start-tomcat.sh /start-tomcat.sh
+# COPY start-tomcat.sh /start-tomcat.sh
 # ENV PATH="${CATALINA_HOME}/bin:${PATH}"
 
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
-RUN chmod +x /start-tomcat.sh
+RUN chmod +x ${CATALINA_HOME}/bin/start-tomcat.sh
 
 EXPOSE 4287
 # Start container
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/start-tomcat.sh"]
+CMD ["start-tomcat.sh"]

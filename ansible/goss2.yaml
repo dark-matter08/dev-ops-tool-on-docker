@@ -1,0 +1,13 @@
+file:
+  /home/ansible/.zshrc:
+    exists: true
+    #    mode: "0644"
+    owner: ansible
+    group: ansible
+    filetype: file
+  /home/ansible/.nanorc:
+    exists: true
+    #    mode: "0644"
+    owner: ansible
+    group: ansible
+    filetype: file

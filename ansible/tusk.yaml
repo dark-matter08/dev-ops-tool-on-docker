@@ -1,0 +1,57 @@
+---
+tasks:
+  validate:
+    usage: validate image
+    run: goss validate --color --format documentation
+
+  image-validate:
+    usage: build docker image
+    run: docker run -it --rm donaldrich/ansible:latest validate
+
+  image-version:
+    usage: build docker image
+    run: docker run -it --rm donaldrich/ansible:latest version
+
+  build:
+    usage: build docker image
+    run: docker build --pull --rm -t donaldrich/ansible:latest .
+
+  dive:
+    usage: inspect docker image
+    run: dive donaldrich/ansible:latest
+  version:
+    usage: check package versions
+    run:
+      - command:
+          exec: ansible --version
+          print: "\e[32mAnsible\e[0m"
+      - command:
+          exec: ansible-lint --version
+          print: "\e[32mAnsible-Lint\e[0m"
+      - command:
+          exec: bash -version
+          print: "\e[32mBash\e[0m"
+      - command:
+          exec: curl --version
+          print: "\e[32mCurl\e[0m"
+      - command:
+          exec: docker help
+          print: "\e[32mDocker\e[0m"
+      - command:
+          exec: git version
+          print: "\e[32mGit\e[0m"
+      - command:
+          exec: pip3 -V
+          print: "\e[32mPip3\e[0m"
+      - command:
+          exec: python --version
+          print: "\e[32mPython\e[0m"
+      - command:
+          exec: rsync --version
+          print: "\e[32mRsync\e[0m"
+      - command:
+          exec: ssh -V
+          print: "\e[32mSsh\e[0m"
+      - command:
+          exec: vault -version
+          print: "\e[32mVault\e[0m"

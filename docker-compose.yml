@@ -22,6 +22,15 @@ services:
       - tomcat_logs:/usr/local/tomcat/logs/
     env_file:
       - './tomcat/compose.env'
+  ansible:
+    container_name: Ansible
+    build:
+      context: ./ansible
+      dockerfile: Dockerfile
+    volumes:
+      - ./ansible/data:/ansible
+    command: ['ansible-playbook', 'playbook.yml']
 volumes:
   jenkins_home:
   tomcat_logs:
+  ansible_data:

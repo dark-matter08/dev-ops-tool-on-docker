@@ -1,0 +1,100 @@
+description: Lightweight image for developing and executing Ansible playbooks
+features:
+  - Ansible
+  - Ansible-lint
+  - Retrieve Hashicorp Vault secrets in playbooks
+  - SSH capable
+image:
+  name: ansible
+  tag: latest
+  entrypoint: /usr/bin/zsh
+site_label: latest
+gossfile:
+  goss2.yaml: {}
+commands:
+  bash:
+    prefix: bash
+    version: -version
+    help: -help
+  python:
+    prefix: python
+    version: --version
+  pip:
+    prefix: pip3
+    version: -V
+  ansible:
+    prefix: ansible
+    version: --version
+    help: --help
+    timeout: 30000
+    docs: https://docs.ansible.com/ansible/latest/index.html
+  # ansible-console:
+  #   prefix: ansible-console
+  #   version: --version
+  #   timeout: 30000
+  #   help: -h
+  ansible-lint:
+    prefix: ansible-lint
+    version: --version
+    timeout: 30000
+    github: ansible/ansible-lint
+    docs: https://ansible-lint.readthedocs.io
+  # molecule:
+  #   prefix: molecule
+  #   version: --version
+  #   timeout: 30000
+  #   quay: ansible/molecule:latest
+  #   docs: https://molecule.readthedocs.io
+  #   github: ansible-community/molecule
+  curl:
+    prefix: curl
+    version: --version
+  git:
+    prefix: git
+    version: version
+  # ansible-cmdb:
+  #   prefix: ansible-cmdb
+  #   version: --version
+  ssh:
+    prefix: ssh
+    version: -V
+  docker:
+    prefix: docker
+    version: help
+    help: help
+  rsync:
+    prefix: rsync
+    version: --version
+    help: --help
+  vault:
+    prefix: vault
+    version: -version
+    help: -h
+references:
+  ansible:
+    docs: https://docs.ansible.com/ansible/latest/index.html
+  # ansible-runner:
+  #   description: "a stable and consistent interface abstraction to Ansible"
+  #   github: ansible/ansible-runner
+  #   docs: https://ansible-runner.readthedocs.io
+  # ansible-builder:
+  #   description: "An Ansible execution environment builder"
+  #   github: ansible/ansible-builder
+  #   docs: https://ansible-builder.readthedocs.io
+  # ansible-test:
+  #   description: "An Ansible Testing Framework for Humans"
+  #   github: nylas/ansible-test
+  # ansible-lint:
+  #   description: "Best practices checker for Ansible"
+  #   github: ansible/ansible-lint
+  #   docs: https://ansible-lint.readthedocs.io
+  # molecule:
+  #   description: "Molecule aids in the development and testing of Ansible roles"
+  #   docs: https://molecule.readthedocs.io
+  #   github: ansible-community/molecule
+  # mitogen:
+  #   github: dw/mitogen
+  #   docs: https://mitogen.networkgenomics.com/ansible_detailed.html
+plugins:
+  ansible-modules-hashivault:
+    github: ansible-modules-hashivault

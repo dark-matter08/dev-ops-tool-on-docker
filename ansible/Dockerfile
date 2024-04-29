@@ -92,5 +92,9 @@ COPY ./playbook.yml ./playbook.yml
 ENV DEBIAN_FRONTEND=dialog
 
 CMD [ "ansible-playbook", "--version" ]
+CMD [ "ansible-playbook", "playbook.yml" ]
 
 RUN goss validate
+
+
+CMD ["tail", "-f", "/dev/null"]

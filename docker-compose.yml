@@ -9,7 +9,7 @@ services:
     volumes:
       - jenkins_home:/var/jenkins_home
   ssh-agent:
-    container_name: ssh-agent
+    container_name: SSH-Agent
     image: jenkins/ssh-agent
   tomcat:
     container_name: Tomcat
@@ -29,7 +29,16 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./ansible/data:/ansible
-    command: ['ansible-playbook', 'playbook.yml']
+    # command:
+    #   [
+    #     'ansible-playbook',
+    #     'playbook.yml',
+    #     'ansible-playbook',
+    #     '--version',
+    #     'tail',
+    #     '-f',
+    #     '/dev/null',
+    #   ]
 volumes:
   jenkins_home:
   tomcat_logs:

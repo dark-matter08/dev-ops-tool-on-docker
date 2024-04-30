@@ -24,21 +24,18 @@ services:
       - './tomcat/compose.env'
   ansible:
     container_name: Ansible
+    hostname: ansible-server
     build:
       context: ./ansible
       dockerfile: Dockerfile
     volumes:
-      - ./ansible/data:/ansible
-    # command:
-    #   [
-    #     'ansible-playbook',
-    #     'playbook.yml',
-    #     'ansible-playbook',
-    #     '--version',
-    #     'tail',
-    #     '-f',
-    #     '/dev/null',
-    #   ]
+      - ./ansible/data:/home/ansible
+      - ./ansible/ansible.cfg:/etc/ansible/ansible.cfg
+      - ./ansible/hosts:/etc/ansible/hosts
+      - ./ansible/playbook.yml:/playbook.yml
+    environment:
+      - ANSIBLE_HOST_KEY_CHECKING=false
+      - ANSIBLE_CONFIG=/etc/ansible/ansible.cfg
 volumes:
   jenkins_home:
   tomcat_logs:

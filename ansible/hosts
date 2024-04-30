@@ -1,0 +1,9 @@
+[NtoporServer]
+190.92.151.125
+
+[NtoporServer:vars]
+ansible_user=ansadmin
+ansible_port=7822
+host_key_checking=False
+
+

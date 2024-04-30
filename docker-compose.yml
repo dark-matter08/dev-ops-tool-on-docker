@@ -28,6 +28,8 @@ services:
     build:
       context: ./ansible
       dockerfile: Dockerfile
+    ports:
+      - '5200:5200'
     volumes:
       - ./ansible/data:/home/ansible
       - ./ansible/ansible.cfg:/etc/ansible/ansible.cfg

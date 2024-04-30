@@ -62,6 +62,9 @@ RUN echo "LC_ALL=en_US.UTF-8" >> /etc/environment \
 
 RUN ssh-agent bash
 
+
+EXPOSE 5200
+
 # Default command
 CMD [ "ansible-playbook", "--version" ]
 CMD [ "ansible-playbook", "playbook.yml" ]

@@ -47,7 +47,14 @@
     ssh-keygen -t rsa -b 4096
 ```
 - Ensure to select the generated keys to be in the ```/home/ansible/.ssh/id_rsa``` folder for backup ability
+- Secure the keys
+```bash 
+    chmod 400 /home/ansible/.ssh/id_rsa
+```
 - Add generate ssh keys to ssh agent
+```bash
+    ssh-agent bash
+```
 ```bash
     ssh-add /home/ansible/.ssh/id_rsa
 ```

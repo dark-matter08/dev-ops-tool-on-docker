@@ -25,6 +25,7 @@ services:
   ansible:
     container_name: Ansible
     hostname: ansible-server
+    privileged: true
     build:
       context: ./ansible
       dockerfile: Dockerfile
@@ -33,8 +34,9 @@ services:
     volumes:
       - ./ansible/data:/home/ansible
       - ./ansible/ansible.cfg:/etc/ansible/ansible.cfg
+      - /var/run/docker.sock:/var/run/docker.sock
       - ./ansible/hosts:/etc/ansible/hosts
-      - ./ansible/playbook.yml:/playbook.yml
+      - ./ansible/tomcat:/tomcat
     environment:
       - ANSIBLE_HOST_KEY_CHECKING=false
       - ANSIBLE_CONFIG=/etc/ansible/ansible.cfg

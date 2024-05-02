@@ -1,0 +1,20 @@
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Build Docker image with buildx
+      command: docker buildx build -t tomcat-regapp:v1 .
+      args:
+        chdir: /tomcat
+    #   docker_image:
+    #     name: tomcat-image-ansible
+    #     path: ./Dockerfile
+    #     build: yes
+
+    # - name: Log in to Docker Hub
+    #   docker_login:
+    #     username: darkmatter08
+    #     password: Nixo2018
+
+    # - name: Push Docker image to Docker Hub
+    #   docker_push:
+    #     name: dev-ops-tomcat

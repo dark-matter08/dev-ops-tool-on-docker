@@ -69,3 +69,28 @@
 ```bash
     ansible all -m command -a uptime
 ```
+- Configure password for the ansible user
+```bash 
+    passwd ansible
+```
+- Switch to ansible user
+```bash 
+    su - ansible
+```
+- Enable password based login - this is for connection and ssh from jenkins
+```bash
+    sudo nano /etc/ssh/sshd_config
+```
+- Set ```PasswordAuthentication``` from ```no``` to ```yes```
+
+
+
+# For a new project
+- create the project folder in the rood directory
+- mount it as a volume to the container
+- add the project name to gitignore as you probably do not need it to sync to your github
+
+# On the ansible node, we will need to 
+
+- Create an ssh server into the host of the ansible docker
+- create a project and use this path for the destination of the project ```/path-to-ansible-files-on-host/project-name``` eg. ```/dev-ops-tool-on-docker/ansible/data/project-name```

@@ -22,7 +22,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && rm -Rf /usr/share/doc && rm -Rf /usr/share/man
 
-ARG USERNAME=ansible
+ARG USERNAME=ansadmin
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 ENV HOME=/home/$USERNAME
@@ -46,6 +46,15 @@ RUN pip3 install --no-cache-dir \
     ansible-modules-hashivault
 
 
+# Install Docker CLI
+RUN curl -fsSL https://get.docker.com -o get-docker.sh \
+    && sh get-docker.sh
+
+
+# Install buildx component
+RUN mkdir -p ~/.docker/cli-plugins \
+    && curl -SL https://github.com/docker/buildx/releases/download/v0.5.1/buildx-v0.5.1.linux-amd64 -o ~/.docker/cli-plugins/docker-buildx \
+    && chmod a+x ~/.docker/cli-plugins/docker-buildx
 
 # Set environment variables
 ENV ANSIBLE_HOST_KEY_CHECKING=false
@@ -63,7 +72,6 @@ RUN echo "LC_ALL=en_US.UTF-8" >> /etc/environment \
 RUN ssh-agent bash
 
 
-EXPOSE 5200
 
 # Default command
 CMD [ "ansible-playbook", "--version" ]

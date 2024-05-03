@@ -38,10 +38,7 @@
 ```bash
     docker exec -it container-id /bin/bash
 ```
-- Create backup ssh dir
-```bash 
-    mkdir /home/ansadmin/.ssh
-```
+
 - Generate public and private ssh keys
 ```bash 
     ssh-keygen -t rsa -b 4096

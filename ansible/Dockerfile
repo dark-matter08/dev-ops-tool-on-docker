@@ -18,6 +18,7 @@ RUN apt-get update \
     sudo \
     less \
     vim \
+    python3-requests \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && rm -Rf /usr/share/doc && rm -Rf /usr/share/man

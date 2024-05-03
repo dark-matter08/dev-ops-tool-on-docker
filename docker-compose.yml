@@ -8,9 +8,6 @@ services:
       - '8080:8080'
     volumes:
       - jenkins_home:/var/jenkins_home
-  ssh-agent:
-    container_name: SSH-Agent
-    image: jenkins/ssh-agent
   tomcat:
     container_name: Tomcat
     build:
@@ -42,7 +39,9 @@ services:
       - ANSIBLE_CONFIG=/etc/ansible/ansible.cfg
   registry:
     container_name: Registry
-    image: registry:2
+    build:
+      context: ./registry
+      dockerfile: Dockerfile
     ports:
       - '7001:7001'
     volumes:

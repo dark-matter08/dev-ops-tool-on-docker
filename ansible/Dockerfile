@@ -83,7 +83,7 @@ RUN mkdir /home/ansadmin/.ssh
 
 RUN usermod -aG docker ansadmin
 
-# USER ansadmin
+USER ansadmin
 # Default command
 CMD [ "ansible-playbook", "--version" ]
 CMD [ "ansible-playbook", "playbook.yml" ]

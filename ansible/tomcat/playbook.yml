@@ -1,20 +1,19 @@
 - hosts: localhost
   connection: local
   tasks:
-    - name: Build Docker image with buildx
-      command: docker buildx build -t tomcat-regapp:v1 .
+    - name: Build Docker image
+      command: sudo docker build -t tomcat-regapp:latest .
       args:
         chdir: /tomcat
-    #   docker_image:
-    #     name: tomcat-image-ansible
-    #     path: ./Dockerfile
-    #     build: yes
+    - name: Tag docker image for push 
+      command: sudo docker tag tomcat-regapp:latest darkmatter08/tomcat-regapp:latest
 
-    # - name: Log in to Docker Hub
-    #   docker_login:
-    #     username: darkmatter08
-    #     password: Nixo2018
+    - name: Log in to Docker Hub
+      docker_login:
+        username: darkmatter08
+        password: Nixo2018
 
-    # - name: Push Docker image to Docker Hub
-    #   docker_push:
-    #     name: dev-ops-tomcat
+    - name: push docker image to docker hub
+      command: docker push darkmatter08/tomcat-regapp:latest
+
+ 

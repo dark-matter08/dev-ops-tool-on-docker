@@ -32,7 +32,7 @@ services:
     ports:
       - '5200:5200'
     volumes:
-      - ./ansible/data:/home/ansible
+      - ./ansible/data:/home/ansadmin
       - ./ansible/ansible.cfg:/etc/ansible/ansible.cfg
       - /var/run/docker.sock:/var/run/docker.sock
       - ./ansible/hosts:/etc/ansible/hosts
@@ -40,6 +40,25 @@ services:
     environment:
       - ANSIBLE_HOST_KEY_CHECKING=false
       - ANSIBLE_CONFIG=/etc/ansible/ansible.cfg
+  registry:
+    container_name: Registry
+    image: registry:2
+    ports:
+      - '7001:7001'
+    volumes:
+      - ./registry/data:/var/lib/registry
+      - ./registry/htpasswd:/etc/docker/registry/htpasswd
+      - ./registry/certs:/certs
+      - ./registry/daemon.json:/etc/docker/daemon.json
+    environment:
+      REGISTRY_AUTH: htpasswd
+      REGISTRY_AUTH_HTPASSWD_PATH: /etc/docker/registry/htpasswd
+      REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+      REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: var/lib/registry
+      REGISTRY_HTTP_TLS_CERTIFICATE: /certs/domain.crt
+      REGISTRY_HTTP_TLS_KEY: /certs/domain.key
+      REGISTRY_HTTP_SECRET: Ntopor2024
+    restart: always
 volumes:
   jenkins_home:
   tomcat_logs:

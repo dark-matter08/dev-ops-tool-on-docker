@@ -1,0 +1,18 @@
+- hosts: NtoporServer
+  tasks:
+    - name: Stop existing container
+      command: docker stop
+      ignore_errors: yes
+
+    - name: Remove the existing container
+      command: docker rm regapp-server
+      ignore_errors: yes
+
+    - name: Remove Image
+      command: docker rmi darkmatter08/tomcat-regapp:latest
+      ignore_errors: yes
+     
+    - name: Create container
+      command: docker run -d -name regapp-server -p 8082:8000 darkmatter08/tomcat-regapp:latest
+
+ 

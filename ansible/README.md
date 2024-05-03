@@ -40,23 +40,23 @@
 ```
 - Create backup ssh dir
 ```bash 
-    mkdir /home/ansible/.ssh
+    mkdir /home/ansadmin/.ssh
 ```
 - Generate public and private ssh keys
 ```bash 
     ssh-keygen -t rsa -b 4096
 ```
-- Ensure to select the generated keys to be in the ```/home/ansible/.ssh/id_rsa``` folder for backup ability
+- Ensure to select the generated keys to be in the ```/home/ansadmin/.ssh/id_rsa``` folder for backup ability
 - Secure the keys
 ```bash 
-    chmod 400 /home/ansible/.ssh/id_rsa
+    chmod 400 /home/ansadmin/.ssh/id_rsa
 ```
 - Add generate ssh keys to ssh agent
 ```bash
     ssh-agent bash
 ```
 ```bash
-    ssh-add /home/ansible/.ssh/id_rsa
+    ssh-add /home/ansadmin/.ssh/id_rsa
 ```
 - Copy ssh keys to target server
 ```bash 
@@ -71,12 +71,9 @@
 ```
 - Configure password for the ansible user
 ```bash 
-    passwd ansible
+    passwd ansadmin
 ```
-- Switch to ansible user
-```bash 
-    su - ansible
-```
+
 - Enable password based login - this is for connection and ssh from jenkins
 ```bash
     sudo nano /etc/ssh/sshd_config

@@ -71,7 +71,7 @@
     passwd ansadmin
 ```
 
-- Enable password based login - this is for connection and ssh from jenkins
+<!-- - Enable password based login - this is for connection and ssh from jenkins
 ```bash
     sudo nano /etc/ssh/sshd_config
 ```
@@ -81,7 +81,7 @@
 - Switch to ansible user
 ```bash 
     su - ansadmin
-```
+``` -->
 
 
 

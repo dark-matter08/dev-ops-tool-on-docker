@@ -11,7 +11,7 @@
     - name: Log in to Docker Hub
       docker_login:
         username: darkmatter08
-        password: Nixo2018
+        password: Nixo20188
 
     - name: push docker image to docker hub
       command: docker push darkmatter08/tomcat-regapp:latest

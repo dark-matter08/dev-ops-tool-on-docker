@@ -49,6 +49,7 @@ RUN pip3 install --no-cache-dir \
     "hvac[parser]" \
     certifi \
     ansible-lint \
+    requests \
     ansible-modules-hashivault
 
 

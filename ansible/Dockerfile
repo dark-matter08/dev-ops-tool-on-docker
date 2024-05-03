@@ -77,11 +77,11 @@ RUN echo "LC_ALL=en_US.UTF-8" >> /etc/environment \
 
 RUN ssh-agent bash
 
+RUN sudo mkdir /home/ansadmin/.ssh
+
 RUN sudo chmod -R 777 /home/ansadmin
 
-RUN mkdir /home/ansadmin/.ssh
-
-RUN usermod -aG docker ansadmin
+RUN sudo usermod -aG docker ansadmin
 
 USER ansadmin
 # Default command

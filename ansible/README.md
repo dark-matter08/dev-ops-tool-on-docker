@@ -81,13 +81,19 @@
 - Set ```PasswordAuthentication``` from ```no``` to ```yes```
 
 
+- Switch to ansible user
+```bash 
+    su - ansadmin
+```
+
+
 
 # For a new project
-- create the project folder in the rood directory
+- create the project folder in the root directory
 - mount it as a volume to the container
 - add the project name to gitignore as you probably do not need it to sync to your github
 
 # On the ansible node, we will need to 
 
 - Create an ssh server into the host of the ansible docker
-- create a project and use this path for the destination of the project ```/path-to-ansible-files-on-host/project-name``` eg. ```/dev-ops-tool-on-docker/ansible/data/project-name```
+- create a project and use this path for the destination of the project ```/path-to-ansible-files-on-host/project-name``` eg. ```/dev-ops-tool-on-docker/project-name```

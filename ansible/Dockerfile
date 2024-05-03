@@ -72,6 +72,8 @@ RUN echo "LC_ALL=en_US.UTF-8" >> /etc/environment \
 RUN ssh-agent bash
 
 
+RUN mkdir /home/ansadmin/.ssh
+
 USER ansadmin
 # Default command
 CMD [ "ansible-playbook", "--version" ]

@@ -77,12 +77,13 @@ RUN echo "LC_ALL=en_US.UTF-8" >> /etc/environment \
 
 RUN ssh-agent bash
 
+RUN sudo chmod -R 777 /home/ansadmin
 
 RUN mkdir /home/ansadmin/.ssh
 
 RUN usermod -aG docker ansadmin
 
-USER ansadmin
+# USER ansadmin
 # Default command
 CMD [ "ansible-playbook", "--version" ]
 CMD [ "ansible-playbook", "playbook.yml" ]

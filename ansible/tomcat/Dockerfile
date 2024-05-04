@@ -31,13 +31,12 @@ RUN apt-get update && \
     rm -rf org && cd ${CATALINA_HOME} && \
     # Setting restrictive umask container-wide
     echo "session optional pam_umask.so" >> /etc/pam.d/common-session && \
-    sed -i 's/UMASK.*022/UMASK           007/g' /etc/lo gin.defs 
+    sed -i 's/UMASK.*022/UMASK           007/g' /etc/login.defs 
 
-# RUN cp -R ${CATALINA_HOME}/webapp.dist/* webapps
-RUN mv ${CATALINA_HOME}/webapps ${CATALINA_HOME}/webapps2
-RUN mv ${CATALINA_HOME}/webapps.dist ${CATALINA_HOME}/webapps
+RUN cp -R ${CATALINA_HOME}/webapps.dist/* webapps
+# RUN mv ${CATALINA_HOME}/webapps ${CATALINA_HOME}/webapps2
+# RUN mv ${CATALINA_HOME}/webapps.dist ${CATALINA_HOME}/webapps
 
 COPY ./*.war ${CATALINA_HOME}/webapps
-# RUN chmod +x ${CATALINA_HOME}/bin/start-tomcat.sh
 
 EXPOSE 8082

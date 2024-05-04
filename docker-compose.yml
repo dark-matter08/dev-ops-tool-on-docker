@@ -39,9 +39,7 @@ services:
       - ANSIBLE_CONFIG=/etc/ansible/ansible.cfg
   registry:
     container_name: Registry
-    build:
-      context: ./registry
-      dockerfile: Dockerfile
+    image: registry:2
     ports:
       - '7001:7001'
     volumes:

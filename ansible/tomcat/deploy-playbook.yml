@@ -13,6 +13,5 @@
       ignore_errors: yes
      
     - name: Create container
-      command: sudo docker run -d -name regapp-server -p 8082:8000 darkmatter08/tomcat-regapp:latest
-
+      command: sudo docker run -d --name regapp-server -p 8082:8000 darkmatter08/tomcat-regapp:latest
  

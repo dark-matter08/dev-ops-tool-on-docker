@@ -44,7 +44,7 @@
     sudo mkdir /home/ansadmin/.ssh
 ```
 ```bash 
-    chmod -R 777 /home/ansadmin
+    sudo chmod -R 777 /home/ansadmin
 ```
 
 ### 4. Generate public and private ssh keys

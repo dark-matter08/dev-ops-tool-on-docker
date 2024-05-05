@@ -4,8 +4,13 @@
       command: sudo docker stop regapp-server
       ignore_errors: yes
 
+
     - name: Remove the existing container
       command: sudo docker rm regapp-server
+      ignore_errors: yes
+
+    - name: Remove image untagged
+      command: sudo docker rmi tomcat-regapp:latest
       ignore_errors: yes
 
     - name: Remove Image

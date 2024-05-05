@@ -16,6 +16,14 @@
     sudo usermod -aG sudo ansadmin
 ```
 
+### 4. Grant admin priviledges to the user
+```bash
+    echo "ansadmin ALL=(root) NOPASSWD:ALL" >/etc/sudoers.d/ansadmin \
+    && echo "ansadmin ALL=(ALL:ALL) NOPASSWD:ALL" >/etc/sudoers.d/ansadmin \
+    && chmod 0440 /etc/sudoers.d/ansadmin
+
+```
+
 ### 4. Enable password based login - this is for connection and ssh from jenkins
 ```bash
     sudo nano /etc/ssh/sshd_config

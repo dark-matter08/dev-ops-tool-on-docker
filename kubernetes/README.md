@@ -16,7 +16,7 @@
     curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
     sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
 ```
-
+- Check version
 ```bash
     minikube version
 ```
@@ -25,31 +25,5 @@
 ```bash
     minikube start
 ```
-- Check version
 
-##############################################################################################################################################################################
 
-# Examples
-
-# Deploying Nginx pods on Kubernetes
-
-## 1. Create a new deployment
-
-```bash
-    kubectl create deployment demo-nginx --image=nginx --replicas=2 --port=80
-```
-- Check deployment
-```bash
-    kubectl get all
-    kubectl get pod
-```
-
-## 2. Expose the deployment as a service
-
-```bash
-    kubectl expose deployment demo-nginx --port-80 --type=LoadBalancer
-```
-- Check deployment
-```bash
-    kubectl get services -o wide
-```

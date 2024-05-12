@@ -15,3 +15,7 @@
 
     - debug:
         var: deploy_output.stdout_lines
+
+    - name: Update deployment with rolling changes
+      command: kubectl rollout restart deployment.v1.app/darkmatter-regapp
+      register: deploy_output

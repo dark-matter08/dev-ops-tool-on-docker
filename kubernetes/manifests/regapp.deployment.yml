@@ -1,18 +1,20 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: darkmatter-regapp
   labels:
     app: regapp
+
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: regapp
 
   template: 
     metadata:
-      labels: regapp
+      labels: 
+        app: regapp
 
     spec: 
       containers: 

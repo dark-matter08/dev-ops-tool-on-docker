@@ -71,3 +71,9 @@
 - as mentioned above check example in services folder
 
 #### Note: the labels in the deployment file and the service file must match and also the `containerPort` on the deployment file must match the `port` and `targetPort` in the service file
+
+
+## 3. Run deployment
+```bash
+    kubectl apply -f service.yml
+```

@@ -1,0 +1,6 @@
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Deploy regapp on kubernetes
+      command: kubectl apply -f ./kubernetes-manifests/regapp.service.yml
+      

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkmatter-regapp
+  labels:
+    app: regapp
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: regapp
+
+  template: 
+    metadata:
+      labels: 
+        app: regapp
+
+    spec: 
+      containers: 
+      - name: regapp
+        image: darkmatter08/tomcat-regapp
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1

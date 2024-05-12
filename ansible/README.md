@@ -89,8 +89,6 @@
 
 
 
-
-
 ## For a new project
 - create the project folder in the ansible directory
 - mount it as a volume to the container in the docker compose
@@ -100,3 +98,7 @@
 
 - Create an ssh server into the host of the ansible docker
 - create a project and use this path for the destination of the project ```/path-to-ansible-files-on-host/project-name``` eg. ```/dev-ops-tool-on-docker/project-name```
+
+## Example project is listed in the ansible directory as `tomcat`. 
+## Note: the project does not have the compiled binary required in the playbooks and the Dockerfile. 
+## You can compile a new binary with Jenkins and Maven, or check in this repo [`https://github.com/yankils/hello-world`](https://github.com/yankils/hello-world) 

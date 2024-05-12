@@ -1,0 +1,17 @@
+- hosts: localhost
+  connection: local
+  user: root
+  tasks:
+    - name: check current dir
+      command: ls
+      register: ls_output
+
+    - debug:
+        var: ls_output.stdout_lines
+
+    - name: Deploy regapp on kubernetes
+      command: kubectl apply -f /tomcat/kubernetes-manifests/regapp.deployment.yml
+      register: deploy_output
+
+    - debug:
+        var: deploy_output.stdout_lines

@@ -1,1 +1,5 @@
 ansible/data
+
+**/.terraform
+**/.terraform.**
+**/terraform.**
